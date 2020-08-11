@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from django.dispatch import receiver
-from django.db.models.signals import pre_delete, post_save
+from xyz_auth.signals import to_save_user_profile
 from . import helper
 import logging
 
@@ -14,3 +14,12 @@ log = logging.getLogger("django")
 #     except Exception, e:
 #         import traceback
 #         log.error("init_person error: %s" % traceback.format_exc())
+
+
+@receiver(to_save_user_profile)
+def init_person(sender, **kwargs):
+    try:
+        helper.init_person(kwargs['user'], kwargs['profile'])
+    except Exception, e:
+        import traceback
+        log.error("init_person error: %s" % traceback.format_exc())

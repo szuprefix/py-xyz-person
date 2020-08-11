@@ -2,7 +2,7 @@
 # author = 'denishuang'
 from __future__ import unicode_literals
 
-from django_szuprefix.api.mixins import IDAndStrFieldSerializerMixin
+from xyz_restful.mixins import IDAndStrFieldSerializerMixin
 from rest_framework import serializers
 from . import models
 
