@@ -8,6 +8,7 @@ from . import models
 
 
 class PersonSerializer(IDAndStrFieldSerializerMixin, serializers.ModelSerializer):
+    user_account = serializers.CharField(source='user.username', label='帐号', read_only=True)
     class Meta:
         model = models.Person
         fields = '__all__'
