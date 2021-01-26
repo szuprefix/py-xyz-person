@@ -25,7 +25,7 @@ class Person(models.Model):
     ethnic = models.CharField("民族", max_length=64, null=True, blank=True)
     create_time = models.DateTimeField("创建时间", auto_now_add=True)
     modify_time = models.DateTimeField("修改时间", auto_now=True)
-    settings = GenericRelation("common.Setting")
+    # settings = GenericRelation("common.Setting")
 
     def __unicode__(self):
         return self.name
