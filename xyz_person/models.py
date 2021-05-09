@@ -13,7 +13,7 @@ class Person(models.Model):
         verbose_name_plural = verbose_name = "个人"
         permissions = (("view_all_person", "查看所有个人"), )
 
-    user = models.OneToOneField(User, verbose_name=User._meta.verbose_name, null=True, related_name="as_person")
+    user = models.OneToOneField(User, verbose_name=User._meta.verbose_name, null=True, on_delete=models.PROTECT, related_name="as_person")
     name = models.CharField("名字", max_length=64, db_index=True)
     gender = models.CharField("性别", max_length=1, choices=choices.CHOICES_GENDER, default=choices.GENDER_UNDEFINED)
     mobile = models.CharField("手机", max_length=64, db_index=True, null=True, blank=True)
