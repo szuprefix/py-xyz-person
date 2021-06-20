@@ -11,7 +11,7 @@ log = logging.getLogger("django")
 #     try:
 #         worker = kwargs['instance']
 #         helper.init_person(worker)
-#     except Exception, e:
+#     except Exception as e:
 #         import traceback
 #         log.error("init_person error: %s" % traceback.format_exc())
 
@@ -20,6 +20,6 @@ log = logging.getLogger("django")
 def init_person(sender, **kwargs):
     try:
         helper.init_person(kwargs['user'], kwargs['profile'])
-    except Exception, e:
+    except Exception as e:
         import traceback
         log.error("init_person error: %s" % traceback.format_exc())

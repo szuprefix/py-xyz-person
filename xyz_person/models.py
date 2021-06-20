@@ -27,7 +27,7 @@ class Person(models.Model):
     modify_time = models.DateTimeField("修改时间", auto_now=True)
     # settings = GenericRelation("common.Setting")
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def save(self, **kwargs):
