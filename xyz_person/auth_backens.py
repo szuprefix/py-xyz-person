@@ -9,7 +9,7 @@ class MobileBackend(ModelBackend):
     Custom auth backend that uses an worker mobile and password
     """
 
-    def authenticate(self, username, password):
+    def authenticate(self,request, username, password):
         qset = models.Person.objects.filter(mobile=username)
         if qset.count() != 1:
             return
